@@ -7,7 +7,7 @@ import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-16 px-6">
+    <section className="relative min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6">
       {/* Floating code animation */}
       <FloatingCode />
 

@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-10">
             <a
               href={`mailto:${personalInfo.email}`}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-medium rounded-lg transition-colors"
@@ -49,7 +49,7 @@ export default function Contact() {
           </div>
 
           {/* Info chips */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500 font-mono">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 text-sm text-slate-500 font-mono">
             <span className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-[#7c3aed]" />
               {personalInfo.email}

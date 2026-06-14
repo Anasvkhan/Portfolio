@@ -84,7 +84,7 @@ export default function FloatingCode() {
         id: i,
         text: s.text,
         color: s.color,
-        x: Math.random() * 88,
+        x: Math.random() * 70,
         startY: -(Math.random() * 200 + 10),
         duration: 28 + Math.random() * 22,
         opacity: 0.22 + Math.random() * 0.18,

@@ -163,7 +163,7 @@ export default function Skills() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Radar */}
           <div className="flex flex-col items-center gap-6">
-            <div className="w-full px-14 py-4" style={{ overflow: "visible" }}>
+            <div className="w-full px-8 sm:px-14 py-4" style={{ overflow: "visible" }}>
               <RadarChart stats={radarStats} />
             </div>
             <div className="grid grid-cols-3 gap-3 w-full max-w-xs">
