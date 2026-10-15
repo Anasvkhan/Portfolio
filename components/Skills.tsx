@@ -110,7 +110,7 @@ function RadarChart({ stats }: { stats: typeof radarStats }) {
             fill="#94a3b8"
             fontSize="11"
             fontWeight="500"
-            fontFamily="Geist Mono, ui-monospace, monospace"
+            className="font-mono"
           >
             {s.axis}
           </text>
@@ -128,7 +128,7 @@ function SkillBar({ name, level, color }: { name: string; level: number; color: 
     <div ref={ref} className="flex flex-col gap-1.5">
       <div className="flex justify-between items-center">
         <span className="font-mono text-xs text-slate-300">{name}</span>
-        <span className="font-mono text-xs text-slate-500 tabular-nums">{level}%</span>
+        <span className="font-mono text-xs text-muted tabular-nums">{level}%</span>
       </div>
       <div className="h-1 w-full bg-white/[0.06] rounded-full overflow-hidden">
         <motion.div
@@ -157,7 +157,7 @@ export default function Skills() {
         {/* Header */}
         <div className="mb-14 flex items-end justify-between gap-6 border-b border-white/[0.06] pb-6">
           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-[-0.03em]">Skills</h2>
-          <span className="font-mono text-xs text-slate-500 pb-1.5">01 / expertise</span>
+          <span className="font-mono text-xs text-muted pb-1.5">01 / expertise</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -173,7 +173,7 @@ export default function Skills() {
                   className="surface text-center border border-white/[0.06] rounded-lg py-2.5 px-1"
                 >
                   <div className="text-white text-lg font-semibold tabular-nums">{s.value}</div>
-                  <div className="font-mono text-[10px] text-slate-500">{s.axis}</div>
+                  <div className="font-mono text-[10px] text-muted">{s.axis}</div>
                 </div>
               ))}
             </div>

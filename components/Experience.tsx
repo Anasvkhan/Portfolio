@@ -11,7 +11,7 @@ export default function Experience() {
         {/* Header */}
         <div className="mb-14 flex items-end justify-between gap-6 border-b border-white/[0.06] pb-6">
           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-[-0.03em]">Experience</h2>
-          <span className="font-mono text-xs text-slate-500 pb-1.5">03 / career</span>
+          <span className="font-mono text-xs text-muted pb-1.5">03 / career</span>
         </div>
 
         <div className="max-w-4xl">
@@ -47,7 +47,7 @@ export default function Experience() {
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <Briefcase className="w-4 h-4 text-slate-500" />
+                        <Briefcase className="w-4 h-4 text-muted" />
                         <span className="font-semibold text-white tracking-tight">{exp.company}</span>
                         {exp.current && (
                           <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-accent/[0.06] text-accent border border-accent/25">
@@ -57,7 +57,7 @@ export default function Experience() {
                       </div>
                       <div className="text-slate-300 text-sm mt-0.5">{exp.role}</div>
                     </div>
-                    <span className="font-mono text-xs text-slate-500 shrink-0 mt-1">
+                    <span className="font-mono text-xs text-muted shrink-0 mt-1">
                       {exp.period}
                     </span>
                   </div>
@@ -65,7 +65,7 @@ export default function Experience() {
                   <ul className="space-y-2 mt-3">
                     {exp.bullets.map((bullet, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="text-slate-500 mt-1 shrink-0 text-xs">▸</span>
+                        <span className="text-muted mt-1 shrink-0 text-xs">▸</span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -79,7 +79,7 @@ export default function Experience() {
         {/* Education divider */}
         <div className="flex items-center gap-4 mt-12 mb-8 pl-12">
           <div className="h-px flex-1 bg-white/5" />
-          <span className="font-mono text-xs text-slate-500">Education</span>
+          <span className="font-mono text-xs text-muted">Education</span>
           <div className="h-px flex-1 bg-white/5" />
         </div>
 
@@ -98,15 +98,15 @@ export default function Experience() {
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-slate-500" />
+                  <GraduationCap className="w-4 h-4 text-muted" />
                   <span className="font-semibold text-white tracking-tight">
                     Shaheed Zulfiqar Ali Bhutto University (SZABIST)
                   </span>
                 </div>
                 <div className="text-slate-300 text-sm mt-1">BS Computer Science</div>
-                <div className="text-slate-500 text-xs mt-0.5">Karachi, Pakistan</div>
+                <div className="text-muted text-xs mt-0.5">Karachi, Pakistan</div>
               </div>
-              <span className="font-mono text-xs text-slate-500 shrink-0 mt-1">2021 – 2025</span>
+              <span className="font-mono text-xs text-muted shrink-0 mt-1">2021 – 2025</span>
             </div>
           </div>
         </motion.div>

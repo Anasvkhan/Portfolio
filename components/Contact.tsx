@@ -17,7 +17,7 @@ export default function Contact() {
 
           {/* Left — pitch */}
           <div className="relative">
-            <span className="font-mono text-xs text-slate-500">04 / contact</span>
+            <span className="font-mono text-xs text-muted">04 / contact</span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-[-0.035em] leading-[1.02] mt-4 mb-5 text-balance">
               Let&apos;s build something together
             </h2>
@@ -52,9 +52,9 @@ export default function Contact() {
                 href={`mailto:${personalInfo.email}`}
                 className="group flex items-center gap-3 py-4 text-sm text-slate-300 hover:text-white transition-colors"
               >
-                <Mail className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+                <Mail className="w-4 h-4 text-muted" strokeWidth={1.75} />
                 <span className="font-mono truncate">{personalInfo.email}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-slate-600 group-hover:text-accent transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-muted group-hover:text-accent transition-colors" />
               </a>
             </li>
             <li>
@@ -64,17 +64,17 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 py-4 text-sm text-slate-300 hover:text-white transition-colors"
               >
-                <Linkedin className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+                <Linkedin className="w-4 h-4 text-muted" strokeWidth={1.75} />
                 <span className="font-mono">LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-slate-600 group-hover:text-accent transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-muted group-hover:text-accent transition-colors" />
               </a>
             </li>
             <li className="flex items-center gap-3 py-4 text-sm text-slate-400">
-              <Phone className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+              <Phone className="w-4 h-4 text-muted" strokeWidth={1.75} />
               <span className="font-mono">{personalInfo.phone}</span>
             </li>
             <li className="flex items-center gap-3 py-4 text-sm text-slate-400">
-              <MapPin className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+              <MapPin className="w-4 h-4 text-muted" strokeWidth={1.75} />
               <span className="font-mono">{personalInfo.location}</span>
             </li>
           </ul>

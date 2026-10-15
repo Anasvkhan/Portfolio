@@ -10,7 +10,7 @@ function generateActivityData(): number[] {
 
 const tile =
   "surface rounded-2xl border border-white/[0.06] transition-colors duration-300 hover:border-white/[0.14]";
-const label = "font-mono text-[11px] text-slate-500 tracking-wide";
+const label = "font-mono text-[11px] text-muted tracking-wide";
 
 export default function BentoGrid() {
   const [activity, setActivity] = useState<number[]>([]);
@@ -35,19 +35,19 @@ export default function BentoGrid() {
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
                   <div>
                     <div className="text-white font-medium tracking-tight">PFC CRM</div>
-                    <div className="text-slate-500 text-sm mt-0.5">AI real estate platform</div>
+                    <div className="text-muted text-sm mt-0.5">AI real estate platform</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-500 mt-2 shrink-0" />
                   <div>
                     <div className="text-white font-medium tracking-tight">DeepSian ERP</div>
-                    <div className="text-slate-500 text-sm mt-0.5">Film & TV set ERP</div>
+                    <div className="text-muted text-sm mt-0.5">Film & TV set ERP</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="font-mono text-xs text-slate-500 mt-5">@ Techvera Global</div>
+            <div className="font-mono text-xs text-muted mt-5">@ Techvera Global</div>
           </div>
 
           {/* Open to work */}
@@ -64,7 +64,7 @@ export default function BentoGrid() {
             <span className={label}>Primary</span>
             <div className="mt-2">
               <div className="text-white text-sm font-medium font-mono">Node.js</div>
-              <div className="text-slate-500 text-xs mt-0.5">TypeScript</div>
+              <div className="text-muted text-xs mt-0.5">TypeScript</div>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export default function BentoGrid() {
             ].map((s) => (
               <div key={s.label} className={`${tile} p-4 flex flex-col justify-end min-h-[96px]`}>
                 <div className="text-3xl font-semibold text-white tracking-tight tabular-nums">{s.value}</div>
-                <div className="text-slate-500 text-xs mt-1">{s.label}</div>
+                <div className="text-muted text-xs mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -86,7 +86,7 @@ export default function BentoGrid() {
           <div className={`${tile} col-span-2 lg:col-span-3 lg:row-span-2 p-6 flex flex-col gap-5 min-h-[160px]`}>
             <div className="flex items-center justify-between">
               <span className={label}>GitHub activity</span>
-              <span className="font-mono text-[11px] text-slate-600">last 24 weeks</span>
+              <span className="font-mono text-[11px] text-muted">last 24 weeks</span>
             </div>
             <div className="flex items-end gap-1 flex-1">
               {activity.map((val, i) => (
@@ -123,7 +123,7 @@ export default function BentoGrid() {
                   <span className="font-mono text-xs text-slate-300 group-hover:text-white transition-colors">
                     {g.handle}
                   </span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-accent group-hover:-translate-y-px group-hover:translate-x-px transition-[color,transform]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted group-hover:text-accent group-hover:-translate-y-px group-hover:translate-x-px transition-[color,transform]" />
                 </a>
               ))}
             </div>
@@ -131,16 +131,16 @@ export default function BentoGrid() {
 
           {/* Location */}
           <div className={`${tile} col-span-1 p-4 flex flex-col justify-between min-h-[96px]`}>
-            <MapPin className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+            <MapPin className="w-4 h-4 text-muted" strokeWidth={1.75} />
             <div className="mt-2">
               <div className="text-white text-sm">Karachi, PK</div>
-              <div className="text-slate-500 text-xs font-mono">UTC+5</div>
+              <div className="text-muted text-xs font-mono">UTC+5</div>
             </div>
           </div>
 
           {/* Stack */}
           <div className={`${tile} col-span-1 p-4 flex flex-col justify-between min-h-[96px]`}>
-            <Cpu className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+            <Cpu className="w-4 h-4 text-muted" strokeWidth={1.75} />
             <div className="font-mono text-xs text-slate-300 mt-2">
               Node · PG · Prisma
             </div>

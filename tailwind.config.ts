@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "#0b0f17",
         surface: "#11161f",
+        // Secondary text — 5.4:1 on background, passes WCAG AA (slate-500 was ~3.9:1)
+        muted: "#7d8a9e",
         // Single accent — every highlight, link and status uses this
         accent: {
           DEFAULT: "#7ee2b8",
@@ -19,8 +21,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        mono: ["Geist Mono", "ui-monospace", "monospace"],
-        sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       animation: {
         blink: "blink 1s step-end infinite",

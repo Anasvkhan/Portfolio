@@ -5,16 +5,16 @@ export default function Footer() {
   return (
     <footer className="py-8 px-6 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="font-mono text-xs text-slate-600">
+        <span className="font-mono text-xs text-muted">
           © {new Date().getFullYear()} Muhammad Anas Khan · built with Next.js
         </span>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-1 -mr-3">
           <a
             href={personalInfo.github1}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-md text-muted hover:text-accent hover:bg-white/[0.04] transition-colors"
             aria-label="GitHub"
           >
             <Github className="w-4 h-4" />
@@ -23,7 +23,7 @@ export default function Footer() {
             href={personalInfo.github2}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-md text-muted hover:text-accent hover:bg-white/[0.04] transition-colors"
             aria-label="GitHub (alt)"
           >
             <Github className="w-4 h-4" />
@@ -32,14 +32,14 @@ export default function Footer() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-md text-muted hover:text-accent hover:bg-white/[0.04] transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin className="w-4 h-4" />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="text-slate-500 hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-md text-muted hover:text-accent hover:bg-white/[0.04] transition-colors"
             aria-label="Email"
           >
             <Mail className="w-4 h-4" />

@@ -38,7 +38,7 @@ export default function ProjectCard({ project, featured = false }: Props) {
           <TypeBadge type={project.type} />
         </div>
         <p className="text-slate-400 text-sm">{project.shortDesc}</p>
-        <div className="font-mono text-[11px] text-slate-500 sm:text-right">
+        <div className="font-mono text-[11px] text-muted sm:text-right">
           {project.stack.slice(0, 3).join(" · ")}
         </div>
       </div>

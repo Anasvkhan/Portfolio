@@ -63,7 +63,7 @@ export default function Hero() {
             </div>
 
             {/* Quick meta */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-3 font-mono text-xs text-slate-500">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-3 font-mono text-xs text-muted">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5" strokeWidth={1.75} />
                 {personalInfo.location}
@@ -85,7 +85,7 @@ export default function Hero() {
       {/* Scroll cue */}
       <a
         href="#bento"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-600 hover:text-slate-300 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted hover:text-slate-300 transition-colors p-3"
         style={{ zIndex: 2 }}
         aria-label="Scroll down"
       >

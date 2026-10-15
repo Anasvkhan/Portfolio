@@ -85,7 +85,7 @@ export default function Terminal() {
         <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
         <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
         <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <span className="ml-4 font-mono text-xs text-slate-500">bash — 80×24</span>
+        <span className="ml-4 font-mono text-xs text-muted">bash — 80×24</span>
       </div>
 
       {/* Terminal body */}
