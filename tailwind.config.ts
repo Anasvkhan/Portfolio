@@ -9,22 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0e1a",
-        purple: {
-          DEFAULT: "#7c3aed",
-          600: "#7c3aed",
-          500: "#8b5cf6",
-          400: "#a78bfa",
-        },
-        cyan: {
-          DEFAULT: "#22d3ee",
-          400: "#22d3ee",
-          300: "#67e8f9",
+        background: "#0b0f17",
+        surface: "#11161f",
+        // Single accent — every highlight, link and status uses this
+        accent: {
+          DEFAULT: "#7ee2b8",
+          strong: "#a6efcf",
+          deep: "#4fbf91",
         },
       },
       fontFamily: {
-        mono: ["JetBrains Mono", "monospace"],
-        sans: ["Inter", "sans-serif"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
+        sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       animation: {
         blink: "blink 1s step-end infinite",

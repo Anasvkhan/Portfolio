@@ -5,10 +5,10 @@ import { motion, useInView } from "framer-motion";
 import { skills, radarStats } from "@/data/portfolio";
 
 const CATEGORY_COLORS: Record<string, string> = {
-  Backend: "#7c3aed",
-  Databases: "#22d3ee",
-  Cloud: "#f59e0b",
-  Frontend: "#10b981",
+  Backend: "#7ee2b8",
+  Databases: "#5fb895",
+  Cloud: "#94a3b8",
+  Frontend: "#64748b",
 };
 
 function RadarChart({ stats }: { stats: typeof radarStats }) {
@@ -58,8 +58,8 @@ function RadarChart({ stats }: { stats: typeof radarStats }) {
           key={i}
           points={pts}
           fill="none"
-          stroke="#7c3aed"
-          strokeOpacity={0.15 + i * 0.07}
+          stroke="#7ee2b8"
+          strokeOpacity={0.06 + i * 0.04}
           strokeWidth={1}
         />
       ))}
@@ -74,8 +74,8 @@ function RadarChart({ stats }: { stats: typeof radarStats }) {
             y1={cy}
             x2={p.x}
             y2={p.y}
-            stroke="#7c3aed"
-            strokeOpacity={0.2}
+            stroke="#7ee2b8"
+            strokeOpacity={0.1}
             strokeWidth={1}
           />
         );
@@ -84,15 +84,15 @@ function RadarChart({ stats }: { stats: typeof radarStats }) {
       {/* Data polygon */}
       <polygon
         points={dataPath}
-        fill="#7c3aed"
-        fillOpacity={0.15}
-        stroke="#7c3aed"
-        strokeWidth={2}
+        fill="#7ee2b8"
+        fillOpacity={0.12}
+        stroke="#7ee2b8"
+        strokeWidth={1.5}
       />
 
       {/* Data dots */}
       {dataPoints.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={4} fill="#7c3aed" />
+        <circle key={i} cx={p.x} cy={p.y} r={3} fill="#7ee2b8" />
       ))}
 
       {/* Labels */}
@@ -107,10 +107,10 @@ function RadarChart({ stats }: { stats: typeof radarStats }) {
             y={p.y}
             textAnchor={isLeft ? "end" : isRight ? "start" : "middle"}
             dominantBaseline="middle"
-            fill="#e2e8f0"
-            fontSize="12"
+            fill="#94a3b8"
+            fontSize="11"
             fontWeight="500"
-            fontFamily="JetBrains Mono, monospace"
+            fontFamily="Geist Mono, ui-monospace, monospace"
           >
             {s.axis}
           </text>
@@ -128,15 +128,15 @@ function SkillBar({ name, level, color }: { name: string; level: number; color: 
     <div ref={ref} className="flex flex-col gap-1.5">
       <div className="flex justify-between items-center">
         <span className="font-mono text-xs text-slate-300">{name}</span>
-        <span className="font-mono text-xs text-slate-500">{level}%</span>
+        <span className="font-mono text-xs text-slate-500 tabular-nums">{level}%</span>
       </div>
-      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+      <div className="h-1 w-full bg-white/[0.06] rounded-full overflow-hidden">
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 60, damping: 18 }}
         />
       </div>
     </div>
@@ -152,12 +152,12 @@ export default function Skills() {
   }, {});
 
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
-          <span className="font-mono text-sm text-[#7c3aed]">// expertise</span>
-          <h2 className="text-3xl font-bold text-white mt-2">Skills</h2>
+        <div className="mb-14 flex items-end justify-between gap-6 border-b border-white/[0.06] pb-6">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-[-0.03em]">Skills</h2>
+          <span className="font-mono text-xs text-slate-500 pb-1.5">01 / expertise</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -170,9 +170,9 @@ export default function Skills() {
               {radarStats.map((s) => (
                 <div
                   key={s.axis}
-                  className="text-center bg-[#0d1224] border border-white/5 rounded-lg py-2 px-1"
+                  className="surface text-center border border-white/[0.06] rounded-lg py-2.5 px-1"
                 >
-                  <div className="text-white text-lg font-bold">{s.value}</div>
+                  <div className="text-white text-lg font-semibold tabular-nums">{s.value}</div>
                   <div className="font-mono text-[10px] text-slate-500">{s.axis}</div>
                 </div>
               ))}

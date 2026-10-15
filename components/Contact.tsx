@@ -1,68 +1,83 @@
 "use client";
 
-import { Mail, Linkedin, Phone, MapPin, Calendar } from "lucide-react";
+import { Mail, Linkedin, Phone, MapPin, Calendar, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-3xl mx-auto">
-        <div className="rounded-2xl bg-[#0d1224] border border-[#7c3aed]/20 p-8 md:p-12 text-center">
-          {/* Eyebrow */}
-          <span className="font-mono text-sm text-[#7c3aed]">// get in touch</span>
+    <section id="contact" className="py-24 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="surface relative overflow-hidden rounded-3xl border border-white/[0.06] p-8 sm:p-12 lg:p-16 grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16">
+          {/* Corner glow */}
+          <div
+            aria-hidden
+            className="absolute -bottom-48 -right-32 w-[520px] h-[520px] rounded-full opacity-[0.08] blur-3xl pointer-events-none"
+            style={{ background: "radial-gradient(circle, #7ee2b8 0%, transparent 65%)" }}
+          />
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-            Let&apos;s build something together
-          </h2>
+          {/* Left — pitch */}
+          <div className="relative">
+            <span className="font-mono text-xs text-slate-500">04 / contact</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-[-0.035em] leading-[1.02] mt-4 mb-5 text-balance">
+              Let&apos;s build something together
+            </h2>
+            <p className="text-slate-400 text-base leading-relaxed max-w-[44ch] mb-9">
+              Open to full-time roles, contracts, and remote work. Drop me a line or book a quick call.
+            </p>
 
-          <p className="text-slate-400 text-base leading-relaxed max-w-lg mx-auto mb-10">
-            Open to full-time roles, contracts, and remote work. Drop me a line or book a quick call.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-10">
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-medium rounded-lg transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              Email me
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#22d3ee]/40 hover:border-[#22d3ee] text-[#22d3ee] font-medium rounded-lg transition-colors"
-            >
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
-            </a>
-            <a
-              href="https://cal.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/20 text-slate-300 font-medium rounded-lg transition-colors"
-            >
-              <Calendar className="w-4 h-4" />
-              Book a call
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="inline-flex items-center gap-2 px-5 py-3 bg-accent text-background font-medium rounded-lg hover:bg-accent-strong active:scale-[0.97] transition-[background-color,transform] duration-200"
+              >
+                <Mail className="w-4 h-4" />
+                Email me
+              </a>
+              <a
+                href="https://cal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-white/10 text-slate-200 font-medium rounded-lg hover:border-white/25 hover:bg-white/[0.03] active:scale-[0.97] transition-[border-color,background-color,transform] duration-200"
+              >
+                <Calendar className="w-4 h-4 text-slate-400" />
+                Book a call
+              </a>
+            </div>
           </div>
 
-          {/* Info chips */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 text-sm text-slate-500 font-mono">
-            <span className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-[#7c3aed]" />
-              {personalInfo.email}
-            </span>
-            <span className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-[#22d3ee]" />
-              {personalInfo.phone}
-            </span>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-slate-600" />
-              {personalInfo.location}
-            </span>
-          </div>
+          {/* Right — direct details */}
+          <ul className="relative self-end divide-y divide-white/[0.06] border-y border-white/[0.06]">
+            <li>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="group flex items-center gap-3 py-4 text-sm text-slate-300 hover:text-white transition-colors"
+              >
+                <Mail className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+                <span className="font-mono truncate">{personalInfo.email}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-slate-600 group-hover:text-accent transition-colors" />
+              </a>
+            </li>
+            <li>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 py-4 text-sm text-slate-300 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+                <span className="font-mono">LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-slate-600 group-hover:text-accent transition-colors" />
+              </a>
+            </li>
+            <li className="flex items-center gap-3 py-4 text-sm text-slate-400">
+              <Phone className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+              <span className="font-mono">{personalInfo.phone}</span>
+            </li>
+            <li className="flex items-center gap-3 py-4 text-sm text-slate-400">
+              <MapPin className="w-4 h-4 text-slate-500" strokeWidth={1.75} />
+              <span className="font-mono">{personalInfo.location}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

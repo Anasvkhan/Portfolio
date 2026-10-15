@@ -6,25 +6,26 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="py-24 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
-          <span className="font-mono text-sm text-[#7c3aed]">// career</span>
-          <h2 className="text-3xl font-bold text-white mt-2">Experience</h2>
+        <div className="mb-14 flex items-end justify-between gap-6 border-b border-white/[0.06] pb-6">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-[-0.03em]">Experience</h2>
+          <span className="font-mono text-xs text-slate-500 pb-1.5">03 / career</span>
         </div>
 
+        <div className="max-w-4xl">
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-[#7c3aed]/30" />
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-white/[0.08]" />
 
           <div className="flex flex-col gap-10">
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
-                initial={{ x: -40, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={{ y: 16, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                 className="relative pl-12"
@@ -33,23 +34,23 @@ export default function Experience() {
                 <div className="absolute left-0 top-1 flex items-center justify-center w-8 h-8">
                   {exp.current ? (
                     <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-400" />
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-accent" />
                     </span>
                   ) : (
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#7c3aed] border-2 border-[#0a0e1a]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-500 border-2 border-background" />
                   )}
                 </div>
 
                 {/* Card */}
-                <div className="bg-[#0d1224] border border-white/5 rounded-2xl p-5 hover:border-[#7c3aed]/30 transition-colors">
+                <div className="surface border border-white/[0.06] rounded-2xl p-6 hover:border-white/[0.14] transition-colors">
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <Briefcase className="w-4 h-4 text-[#7c3aed]" />
-                        <span className="font-semibold text-white">{exp.company}</span>
+                        <Briefcase className="w-4 h-4 text-slate-500" />
+                        <span className="font-semibold text-white tracking-tight">{exp.company}</span>
                         {exp.current && (
-                          <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-green-400/10 text-green-400 border border-green-400/20">
+                          <span className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-accent/[0.06] text-accent border border-accent/25">
                             current
                           </span>
                         )}
@@ -64,7 +65,7 @@ export default function Experience() {
                   <ul className="space-y-2 mt-3">
                     {exp.bullets.map((bullet, j) => (
                       <li key={j} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="text-[#7c3aed] mt-1 shrink-0 text-xs">▸</span>
+                        <span className="text-slate-500 mt-1 shrink-0 text-xs">▸</span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -78,27 +79,27 @@ export default function Experience() {
         {/* Education divider */}
         <div className="flex items-center gap-4 mt-12 mb-8 pl-12">
           <div className="h-px flex-1 bg-white/5" />
-          <span className="font-mono text-xs text-[#22d3ee] uppercase tracking-widest">// education</span>
+          <span className="font-mono text-xs text-slate-500">Education</span>
           <div className="h-px flex-1 bg-white/5" />
         </div>
 
         {/* Education entry */}
         <motion.div
-          initial={{ x: -40, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: 16, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative pl-12"
         >
           <div className="absolute left-0 top-1 flex items-center justify-center w-8 h-8">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#22d3ee] border-2 border-[#0a0e1a]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-500 border-2 border-background" />
           </div>
-          <div className="bg-[#0d1224] border border-white/5 rounded-2xl p-5 hover:border-[#22d3ee]/30 transition-colors">
+          <div className="surface border border-white/[0.06] rounded-2xl p-6 hover:border-white/[0.14] transition-colors">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-[#22d3ee]" />
-                  <span className="font-semibold text-white">
+                  <GraduationCap className="w-4 h-4 text-slate-500" />
+                  <span className="font-semibold text-white tracking-tight">
                     Shaheed Zulfiqar Ali Bhutto University (SZABIST)
                   </span>
                 </div>
@@ -109,6 +110,7 @@ export default function Experience() {
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

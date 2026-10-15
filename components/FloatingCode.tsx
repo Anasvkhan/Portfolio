@@ -78,17 +78,18 @@ export default function FloatingCode() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const all = [...SNIPPETS, ...SNIPPETS].slice(0, 42);
+    // Sparse, monochrome and faint — texture behind the hero, not a focal point
+    const all = [...SNIPPETS].sort(() => Math.random() - 0.5).slice(0, 18);
     setItems(
       all.map((s, i) => ({
         id: i,
         text: s.text,
-        color: s.color,
-        x: Math.random() * 70,
+        color: "#94a3b8",
+        x: Math.random() * 75,
         startY: -(Math.random() * 200 + 10),
-        duration: 28 + Math.random() * 22,
-        opacity: 0.22 + Math.random() * 0.18,
-        size: 12 + Math.floor(Math.random() * 3),
+        duration: 40 + Math.random() * 25,
+        opacity: 0.06 + Math.random() * 0.06,
+        size: 12 + Math.floor(Math.random() * 2),
       }))
     );
   }, []);

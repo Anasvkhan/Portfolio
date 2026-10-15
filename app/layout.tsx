@@ -20,7 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-[#0a0e1a] text-slate-200 font-sans antialiased">
+      <body className="bg-background text-slate-200 font-sans antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[70] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent focus:text-background font-mono text-sm"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>

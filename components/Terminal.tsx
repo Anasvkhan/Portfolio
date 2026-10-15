@@ -79,9 +79,9 @@ export default function Terminal() {
   }, [phase, scriptIdx, charIdx]);
 
   return (
-    <div className="w-full max-w-[520px] rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+    <div className="w-full max-w-[520px] rounded-xl overflow-hidden border border-white/[0.08] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7),0_0_0_1px_rgba(126,226,184,0.04)]">
       {/* Window chrome */}
-      <div className="bg-[#1a1f2e] px-4 py-3 flex items-center gap-2 border-b border-white/5">
+      <div className="bg-[#151b26] px-4 py-3 flex items-center gap-2 border-b border-white/5">
         <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
         <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
         <span className="w-3 h-3 rounded-full bg-[#28c840]" />
@@ -89,12 +89,12 @@ export default function Terminal() {
       </div>
 
       {/* Terminal body */}
-      <div className="bg-[#0d1224] p-5 font-mono text-sm min-h-[280px] leading-relaxed">
+      <div className="bg-surface p-5 font-mono text-sm min-h-[280px] leading-relaxed">
         {lines.map((line, i) => {
           if (line.type === "empty") return <div key={i} className="h-2" />;
           if (line.type === "command")
             return (
-              <div key={i} className="text-[#22d3ee]">
+              <div key={i} className="text-accent">
                 {line.text}
               </div>
             );
@@ -107,17 +107,17 @@ export default function Terminal() {
 
         {/* Current typing line */}
         {phase !== "done" && (
-          <div className="text-[#22d3ee] flex items-center gap-0">
+          <div className="text-accent flex items-center gap-0">
             <span>{currentCmd}</span>
-            <span className="cursor-blink inline-block w-2 h-4 bg-[#22d3ee] ml-0.5" />
+            <span className="cursor-blink inline-block w-2 h-4 bg-accent ml-0.5" />
           </div>
         )}
 
         {/* Final blinking prompt */}
         {phase === "done" && (
-          <div className="text-[#22d3ee] flex items-center">
+          <div className="text-accent flex items-center">
             <span>$ </span>
-            <span className="cursor-blink inline-block w-2 h-4 bg-[#22d3ee] ml-0.5" />
+            <span className="cursor-blink inline-block w-2 h-4 bg-accent ml-0.5" />
           </div>
         )}
       </div>

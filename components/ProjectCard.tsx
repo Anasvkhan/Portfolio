@@ -5,97 +5,98 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 
-const TYPE_COLORS: Record<string, string> = {
-  Production: "text-green-400 bg-green-400/10 border-green-400/20",
-  Personal: "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20",
-  FYP: "text-[#7c3aed] bg-[#7c3aed]/10 border-[#7c3aed]/20",
+const TYPE_STYLES: Record<string, string> = {
+  Production: "text-accent border-accent/25 bg-accent/[0.06]",
+  Personal: "text-slate-300 border-white/10 bg-white/[0.03]",
+  FYP: "text-slate-400 border-white/10 bg-white/[0.03]",
 };
-
-const STACK_COLORS = [
-  "bg-[#7c3aed]/15 text-[#a78bfa] border-[#7c3aed]/20",
-  "bg-[#22d3ee]/10 text-[#67e8f9] border-[#22d3ee]/20",
-  "bg-white/5 text-slate-400 border-white/10",
-];
 
 interface Props {
   project: Project;
   featured?: boolean;
 }
 
+function TypeBadge({ type }: { type: string }) {
+  return (
+    <span className={`font-mono text-[10px] px-2 py-0.5 rounded-full border ${TYPE_STYLES[type]}`}>
+      {type}
+    </span>
+  );
+}
+
 export default function ProjectCard({ project, featured = false }: Props) {
   const [expanded, setExpanded] = useState(false);
 
-  return (
-    <div
-      className={`group relative rounded-2xl bg-[#0d1224] border transition-all duration-300 ${
-        expanded || featured
-          ? "border-[#7c3aed]/40 shadow-lg shadow-[#7c3aed]/10"
-          : "border-white/5 hover:border-[#7c3aed]/40 hover:shadow-lg hover:shadow-[#7c3aed]/5 hover:-translate-y-0.5"
-      } ${featured ? "p-6" : "p-5"}`}
-    >
-      {/* Header */}
-      <div className="flex items-start justify-between gap-4 mb-3">
-        <div>
-          <div className="flex items-center gap-3 flex-wrap">
-            <h3 className={`font-bold text-white ${featured ? "text-xl" : "text-base"}`}>
-              {project.name}
-            </h3>
-            <span
-              className={`font-mono text-[10px] px-2 py-0.5 rounded-full border ${TYPE_COLORS[project.type]}`}
-            >
-              {project.type}
-            </span>
-          </div>
-          <p className="text-slate-400 text-sm mt-1">{project.shortDesc}</p>
+  // Non-featured projects render as a compact index row
+  if (!featured) {
+    return (
+      <div className="group grid sm:grid-cols-[minmax(0,14rem)_1fr_auto] gap-x-8 gap-y-2 items-baseline py-5 border-b border-white/[0.06] hover:bg-white/[0.015] transition-colors sm:px-2">
+        <div className="flex items-center gap-3 flex-wrap">
+          <h4 className="font-medium text-white tracking-tight group-hover:text-accent transition-colors">
+            {project.name}
+          </h4>
+          <TypeBadge type={project.type} />
+        </div>
+        <p className="text-slate-400 text-sm">{project.shortDesc}</p>
+        <div className="font-mono text-[11px] text-slate-500 sm:text-right">
+          {project.stack.slice(0, 3).join(" · ")}
         </div>
       </div>
+    );
+  }
 
-      {/* Description — only featured shows full desc */}
-      {featured && (
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">{project.description}</p>
-      )}
+  return (
+    <div className="surface group relative rounded-2xl border border-white/[0.06] hover:border-white/[0.14] p-6 sm:p-7 flex flex-col transition-colors duration-300">
+      {/* Header */}
+      <div className="flex items-center gap-3 flex-wrap mb-2">
+        <h3 className="text-2xl font-semibold text-white tracking-[-0.02em]">{project.name}</h3>
+        <TypeBadge type={project.type} />
+      </div>
+      <p className="text-slate-300 text-sm">{project.shortDesc}</p>
 
-      {/* Stack pills */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.stack.map((tech, i) => (
+      <p className="text-slate-400 text-sm leading-relaxed mt-4 mb-6 max-w-[60ch]">
+        {project.description}
+      </p>
+
+      {/* Stack */}
+      <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
+        {project.stack.map((tech) => (
           <span
             key={tech}
-            className={`font-mono text-[10px] px-2 py-0.5 rounded-md border ${
-              STACK_COLORS[i % STACK_COLORS.length]
-            }`}
+            className="font-mono text-[11px] px-2 py-0.5 rounded-md border border-white/[0.08] text-slate-400"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      {/* Expandable details — only for featured projects */}
-      {featured && project.details && (
+      {/* Expandable details */}
+      {project.details && (
         <>
           <button
             onClick={() => setExpanded(!expanded)}
-            className="flex items-center gap-2 font-mono text-xs text-[#7c3aed] hover:text-[#a78bfa] transition-colors"
+            aria-expanded={expanded}
+            className="self-start flex items-center gap-1.5 font-mono text-xs text-slate-400 hover:text-accent transition-colors"
           >
             <ChevronDown
-              className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              className={`w-3.5 h-3.5 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
             />
-            {expanded ? "hide tech details" : "show tech details"}
+            {expanded ? "Hide technical details" : "Technical details"}
           </button>
 
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             {expanded && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ type: "spring", stiffness: 260, damping: 30 }}
                 className="overflow-hidden"
               >
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 space-y-2.5 border-l border-white/[0.08] pl-4">
                   {project.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
-                      <span className="text-[#7c3aed] mt-1 shrink-0">▸</span>
-                      <span>{detail}</span>
+                    <li key={i} className="text-sm text-slate-400 leading-relaxed">
+                      {detail}
                     </li>
                   ))}
                 </ul>
