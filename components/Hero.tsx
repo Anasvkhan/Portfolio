@@ -2,6 +2,7 @@
 
 import Terminal from "./Terminal";
 import FloatingCode from "./FloatingCode";
+import { Spotlight } from "@/components/motion-primitives/spotlight";
 import { personalInfo } from "@/data/portfolio";
 import { ArrowDown, ArrowRight, Download, GraduationCap, MapPin } from "lucide-react";
 
@@ -10,6 +11,13 @@ export default function Hero() {
     <section className="relative min-h-[100dvh] flex items-center pt-28 pb-20 px-4 sm:px-6 overflow-hidden">
       {/* Floating code animation */}
       <FloatingCode />
+
+      {/* Cursor-following glow (desktop only — no hover on touch) */}
+      <Spotlight
+        size={520}
+        springOptions={{ bounce: 0, stiffness: 120, damping: 20 }}
+        className="hidden md:block blur-3xl from-accent/[0.14] via-accent/[0.05] to-transparent dark:from-accent/[0.14] dark:via-accent/[0.05] dark:to-transparent"
+      />
 
       {/* Soft accent glow, off-center */}
       <div
