@@ -2,6 +2,7 @@
 
 import { projects } from "@/data/portfolio";
 import ProjectCard from "./ProjectCard";
+import { AnimatedBackground } from "@/components/motion-primitives/animated-background";
 
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
@@ -27,11 +28,18 @@ export default function Projects() {
         <div className="mt-16">
           <h3 className="font-mono text-xs text-slate-500 mb-2">Other projects</h3>
           <ul className="border-t border-white/[0.06]">
-            {rest.map((p) => (
-              <li key={p.id}>
-                <ProjectCard project={p} />
-              </li>
-            ))}
+            {/* Highlight slides between rows on hover */}
+            <AnimatedBackground
+              enableHover
+              className="rounded-lg bg-white/[0.035]"
+              transition={{ type: "spring", bounce: 0.1, duration: 0.35 }}
+            >
+              {rest.map((p) => (
+                <li key={p.id} data-id={String(p.id)} className="flex w-full [&>div]:w-full">
+                  <ProjectCard project={p} />
+                </li>
+              ))}
+            </AnimatedBackground>
           </ul>
         </div>
       </div>

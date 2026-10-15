@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { AnimatedBackground } from "@/components/motion-primitives/animated-background";
 
 const navLinks = [
   { label: "work", href: "#projects" },
@@ -40,16 +41,24 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="font-mono text-[13px] text-slate-400 hover:text-slate-100 px-3 py-2 rounded-md hover:bg-white/[0.04] transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="hidden md:flex items-center">
+          {/* Highlight pill glides between links on hover */}
+          <AnimatedBackground
+            enableHover
+            className="rounded-md bg-white/[0.07]"
+            transition={{ type: "spring", bounce: 0.15, duration: 0.3 }}
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                data-id={link.label}
+                href={link.href}
+                className="font-mono text-[13px] text-slate-400 hover:text-slate-100 px-3 py-2 rounded-md transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </AnimatedBackground>
           <a
             href="#contact"
             className="ml-3 font-mono text-[13px] px-4 py-2 bg-accent text-background font-medium rounded-md hover:bg-accent-strong active:scale-[0.97] transition-[background-color,transform] duration-200"

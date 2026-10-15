@@ -30,7 +30,7 @@ export default function ProjectCard({ project, featured = false }: Props) {
   // Non-featured projects render as a compact index row
   if (!featured) {
     return (
-      <div className="group grid sm:grid-cols-[minmax(0,14rem)_1fr_auto] gap-x-8 gap-y-2 items-baseline py-5 border-b border-white/[0.06] hover:bg-white/[0.015] transition-colors sm:px-2">
+      <div className="group grid sm:grid-cols-[minmax(0,14rem)_1fr_auto] gap-x-8 gap-y-2 items-baseline py-5 border-b border-white/[0.06] sm:px-3">
         <div className="flex items-center gap-3 flex-wrap">
           <h4 className="font-medium text-white tracking-tight group-hover:text-accent transition-colors">
             {project.name}
